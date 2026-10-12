@@ -6,8 +6,8 @@ st.set_page_config(
     layout="wide"
 )
 
-USUARIO = "manuel"
-PASSWORD = "1234"
+USUARIO = "mdrl"
+PASSWORD = "1917"
 
 if "login" not in st.session_state:
     st.session_state.login = False
