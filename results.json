@@ -1,0 +1,56 @@
+{
+    "compras": [
+        {
+            "pair": "GBPCAD=X",
+            "signal": "COMPRAR",
+            "confidence": 85
+        },
+        {
+            "pair": "AUDNZD=X",
+            "signal": "COMPRAR",
+            "confidence": 85
+        },
+        {
+            "pair": "AUDCAD=X",
+            "signal": "COMPRAR",
+            "confidence": 85
+        },
+        {
+            "pair": "USDCHF=X",
+            "signal": "COMPRAR",
+            "confidence": 80
+        },
+        {
+            "pair": "USDCAD=X",
+            "signal": "COMPRAR",
+            "confidence": 80
+        }
+    ],
+    "ventas": [
+        {
+            "pair": "EURAUD=X",
+            "signal": "VENDER",
+            "confidence": 80
+        },
+        {
+            "pair": "NZDCAD=X",
+            "signal": "VENDER",
+            "confidence": 70
+        },
+        {
+            "pair": "EURUSD=X",
+            "signal": "VENDER",
+            "confidence": 65
+        },
+        {
+            "pair": "GBPUSD=X",
+            "signal": "VENDER",
+            "confidence": 65
+        },
+        {
+            "pair": "USDJPY=X",
+            "signal": "VENDER",
+            "confidence": 65
+        }
+    ]
+}

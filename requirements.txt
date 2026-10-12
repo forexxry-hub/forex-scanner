@@ -1,0 +1,12 @@
+pandas
+numpy
+
+yfinance
+investpy
+
+ta
+scipy
+
+plotly
+streamlit
+pyyaml
