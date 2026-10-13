@@ -1,56 +1,206 @@
 {
     "compras": [
         {
+            "pair": "GBPNZD=X",
+            "signal": "COMPRAR",
+            "confidence": 85,
+            "price": 2.36503,
+            "entry": 2.36503,
+            "sl": 2.34803,
+            "tp": 2.39903,
+            "rr": 2.0
+        },
+        {
             "pair": "GBPCAD=X",
             "signal": "COMPRAR",
-            "confidence": 85
+            "confidence": 85,
+            "price": 1.88617,
+            "entry": 1.88617,
+            "sl": 1.87394,
+            "tp": 1.91062,
+            "rr": 2.0
         },
         {
             "pair": "AUDNZD=X",
             "signal": "COMPRAR",
-            "confidence": 85
-        },
-        {
-            "pair": "AUDCAD=X",
-            "signal": "COMPRAR",
-            "confidence": 85
+            "confidence": 85,
+            "price": 1.24517,
+            "entry": 1.24517,
+            "sl": 1.23547,
+            "tp": 1.26457,
+            "rr": 2.0
         },
         {
             "pair": "USDCHF=X",
             "signal": "COMPRAR",
-            "confidence": 80
+            "confidence": 80,
+            "price": 0.83361,
+            "entry": 0.83361,
+            "sl": 0.82604,
+            "tp": 0.84874,
+            "rr": 2.0
         },
         {
             "pair": "USDCAD=X",
             "signal": "COMPRAR",
-            "confidence": 80
+            "confidence": 80,
+            "price": 1.42723,
+            "entry": 1.42723,
+            "sl": 1.41753,
+            "tp": 1.44664,
+            "rr": 2.0
+        },
+        {
+            "pair": "EURNZD=X",
+            "signal": "COMPRAR",
+            "confidence": 80,
+            "price": 1.99846,
+            "entry": 1.99846,
+            "sl": 1.98376,
+            "tp": 2.02785,
+            "rr": 2.0
+        },
+        {
+            "pair": "GBPCHF=X",
+            "signal": "COMPRAR",
+            "confidence": 80,
+            "price": 1.10171,
+            "entry": 1.10171,
+            "sl": 1.09198,
+            "tp": 1.12118,
+            "rr": 2.0
+        },
+        {
+            "pair": "AUDCAD=X",
+            "signal": "COMPRAR",
+            "confidence": 80,
+            "price": 0.99308,
+            "entry": 0.99308,
+            "sl": 0.98424,
+            "tp": 1.01075,
+            "rr": 2.0
+        },
+        {
+            "pair": "EURCHF=X",
+            "signal": "COMPRAR",
+            "confidence": 75,
+            "price": 0.93106,
+            "entry": 0.93106,
+            "sl": 0.9228,
+            "tp": 0.94758,
+            "rr": 2.0
+        },
+        {
+            "pair": "AUDCHF=X",
+            "signal": "COMPRAR",
+            "confidence": 75,
+            "price": 0.58005,
+            "entry": 0.58005,
+            "sl": 0.57404,
+            "tp": 0.59206,
+            "rr": 2.0
         }
     ],
     "ventas": [
         {
-            "pair": "EURAUD=X",
-            "signal": "VENDER",
-            "confidence": 80
-        },
-        {
-            "pair": "NZDCAD=X",
-            "signal": "VENDER",
-            "confidence": 70
-        },
-        {
             "pair": "EURUSD=X",
             "signal": "VENDER",
-            "confidence": 65
+            "confidence": 70,
+            "price": 1.11719,
+            "entry": 1.11719,
+            "sl": 1.12692,
+            "tp": 1.09774,
+            "rr": 2.0
+        },
+        {
+            "pair": "NZDUSD=X",
+            "signal": "VENDER",
+            "confidence": 70,
+            "price": 0.55897,
+            "entry": 0.55897,
+            "sl": 0.5651,
+            "tp": 0.54671,
+            "rr": 2.0
+        },
+        {
+            "pair": "EURGBP=X",
+            "signal": "VENDER",
+            "confidence": 70,
+            "price": 0.84501,
+            "entry": 0.84501,
+            "sl": 0.84958,
+            "tp": 0.83588,
+            "rr": 2.0
+        },
+        {
+            "pair": "EURAUD=X",
+            "signal": "VENDER",
+            "confidence": 70,
+            "price": 1.60497,
+            "entry": 1.60497,
+            "sl": 1.61847,
+            "tp": 1.57797,
+            "rr": 2.0
+        },
+        {
+            "pair": "GC=F",
+            "signal": "VENDER",
+            "confidence": 70,
+            "price": 4190.7998,
+            "entry": 4190.7998,
+            "sl": 4318.8714,
+            "tp": 3934.65661,
+            "rr": 2.0
         },
         {
             "pair": "GBPUSD=X",
             "signal": "VENDER",
-            "confidence": 65
+            "confidence": 65,
+            "price": 1.32168,
+            "entry": 1.32168,
+            "sl": 1.33179,
+            "tp": 1.30148,
+            "rr": 2.0
         },
         {
-            "pair": "USDJPY=X",
+            "pair": "EURJPY=X",
             "signal": "VENDER",
-            "confidence": 65
+            "confidence": 65,
+            "price": 176.93201,
+            "entry": 176.93201,
+            "sl": 179.04658,
+            "tp": 172.70287,
+            "rr": 2.0
+        },
+        {
+            "pair": "EURCAD=X",
+            "signal": "VENDER",
+            "confidence": 65,
+            "price": 1.59397,
+            "entry": 1.59397,
+            "sl": 1.60404,
+            "tp": 1.57384,
+            "rr": 2.0
+        },
+        {
+            "pair": "GBPJPY=X",
+            "signal": "VENDER",
+            "confidence": 65,
+            "price": 209.371,
+            "entry": 209.371,
+            "sl": 211.60779,
+            "tp": 204.89743,
+            "rr": 2.0
+        },
+        {
+            "pair": "GBPAUD=X",
+            "signal": "VENDER",
+            "confidence": 65,
+            "price": 1.89921,
+            "entry": 1.89921,
+            "sl": 1.91301,
+            "tp": 1.87161,
+            "rr": 2.0
         }
     ]
 }

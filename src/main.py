@@ -1,6 +1,6 @@
+import json
 import yaml
 import yfinance as yf
-import json
 
 from indicators import add_indicators
 from trend_analysis import get_trend
@@ -18,6 +18,7 @@ from liquidity_analysis import (
 )
 
 from signal_generator import generate_signal
+
 
 print("ANALISIS FOREX")
 
@@ -67,6 +68,36 @@ for pair in pairs:
         choch
     )
 
+    price = float(data["Close"].iloc[-1])
+
+    atr = float(data["ATR"].iloc[-1])
+
+    if signal == "COMPRAR":
+
+        entry = price
+
+        sl = price - (atr * 1.5)
+
+        tp = price + (atr * 3)
+
+    elif signal == "VENDER":
+
+        entry = price
+
+        sl = price + (atr * 1.5)
+
+        tp = price - (atr * 3)
+
+    else:
+
+        entry = price
+
+        sl = None
+
+        tp = None
+
+    rr = 2.0
+
     if liquidity:
         confidence += 5
 
@@ -81,7 +112,12 @@ for pair in pairs:
     results.append({
         "pair": pair,
         "signal": signal,
-        "confidence": confidence
+        "confidence": confidence,
+        "price": round(price, 5),
+        "entry": round(entry, 5),
+        "sl": round(sl, 5) if sl is not None else None,
+        "tp": round(tp, 5) if tp is not None else None,
+        "rr": rr
     })
 
     print("TENDENCIA:", trend)
@@ -94,12 +130,18 @@ for pair in pairs:
     print("SEÑAL:", signal)
     print("FIABILIDAD:", str(confidence) + "%")
 
-    print("=" * 50)
+    print("PRECIO:", round(price, 5))
+    print("ENTRADA:", round(entry, 5))
 
-print()
-print("=" * 50)
-print("TOP OPORTUNIDADES")
-print("=" * 50)
+    if sl is not None:
+        print("SL:", round(sl, 5))
+
+    if tp is not None:
+        print("TP:", round(tp, 5))
+
+    print("RR:", rr)
+
+    print("=" * 50)
 
 results = sorted(
     results,
@@ -117,13 +159,13 @@ ventas = [
     if x["signal"] == "VENDER"
 ]
 
-compras = compras[:5]
+compras = compras[:10]
 
-ventas = ventas[:5]
+ventas = ventas[:10]
 
 print()
 print("=" * 50)
-print("TOP 5 COMPRAS")
+print("TOP 10 COMPRAS")
 print("=" * 50)
 
 for i, item in enumerate(compras, start=1):
@@ -136,7 +178,7 @@ for i, item in enumerate(compras, start=1):
 
 print()
 print("=" * 50)
-print("TOP 5 VENTAS")
+print("TOP 10 VENTAS")
 print("=" * 50)
 
 for i, item in enumerate(ventas, start=1):
@@ -146,6 +188,7 @@ for i, item in enumerate(ventas, start=1):
         f"{item['pair']} | "
         f"{item['confidence']}%"
     )
+
 data_web = {
     "compras": compras,
     "ventas": ventas

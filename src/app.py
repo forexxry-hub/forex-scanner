@@ -51,20 +51,50 @@ else:
 
     ventas = data["ventas"]
 
-    st.header("TOP 5 COMPRAS")
+    st.header("TOP 10 COMPRAS")
 
     for item in compras:
 
         st.success(
-            f"{item['pair']} | "
-            f"{item['confidence']}%"
+            f"""
+PAR: {item['pair']}
+
+SEÑAL: {item['signal']}
+
+CONFIANZA: {item['confidence']}%
+
+PRECIO ACTUAL: {item['price']}
+
+ENTRADA: {item['entry']}
+
+STOP LOSS: {item['sl']}
+
+TAKE PROFIT: {item['tp']}
+
+R:R = {item['rr']}
+"""
         )
 
-    st.header("TOP 5 VENTAS")
+    st.header("TOP 10 VENTAS")
 
     for item in ventas:
 
         st.error(
-            f"{item['pair']} | "
-            f"{item['confidence']}%"
+            f"""
+PAR: {item['pair']}
+
+SEÑAL: {item['signal']}
+
+CONFIANZA: {item['confidence']}%
+
+PRECIO ACTUAL: {item['price']}
+
+ENTRADA: {item['entry']}
+
+STOP LOSS: {item['sl']}
+
+TAKE PROFIT: {item['tp']}
+
+R:R = {item['rr']}
+"""
         )
