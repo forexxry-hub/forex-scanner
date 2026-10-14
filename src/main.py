@@ -69,6 +69,19 @@ for pair in pairs:
     )
 
     price = float(data["Close"].iloc[-1])
+    
+    tenkan = float(data["TENKAN"].iloc[-1])
+
+    kijun = float(data["KIJUN"].iloc[-1])
+
+    senkou_a = float(data["SENKOU_A"].iloc[-1])
+
+    senkou_b = float(data["SENKOU_B"].iloc[-1])
+
+    cloud_top = max(senkou_a, senkou_b)
+
+    cloud_bottom = min(senkou_a, senkou_b)
+    
 
     atr = float(data["ATR"].iloc[-1])
 
@@ -107,16 +120,52 @@ for pair in pairs:
     if order_block:
         confidence += 5
 
+    if signal == "COMPRAR":
+
+        if price > cloud_top:
+
+            confidence += 5
+
+        if tenkan > kijun:
+
+            confidence += 5
+
+
+if signal == "VENDER":
+
+    if price < cloud_bottom:
+
+        confidence += 5
+
+    if tenkan < kijun:
+
+        confidence += 5
+
     confidence = min(confidence, 95)
 
     results.append({
         "pair": pair,
         "signal": signal,
         "confidence": confidence,
+
+        "trend": trend,
+        "phase": phase,
+
+        "bos": bos,
+        "choch": choch,
+
+        "liquidity": liquidity,
+        "fvg": fvg,
+        "order_block": order_block,
+
         "price": round(price, 5),
+
         "entry": round(entry, 5),
+
         "sl": round(sl, 5) if sl is not None else None,
+
         "tp": round(tp, 5) if tp is not None else None,
+
         "rr": rr
     })
 

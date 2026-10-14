@@ -43,4 +43,18 @@ def add_indicators(df):
         close
     )
 
+    ichimoku = ta.trend.IchimokuIndicator(
+        high=high,
+        low=low
+    )
+
+    df["TENKAN"] = ichimoku.ichimoku_conversion_line()
+
+    df["KIJUN"] = ichimoku.ichimoku_base_line()
+
+    df["SENKOU_A"] = ichimoku.ichimoku_a()
+
+    df["SENKOU_B"] = ichimoku.ichimoku_b()
+
+
     return df
