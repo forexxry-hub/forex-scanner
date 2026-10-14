@@ -131,15 +131,15 @@ for pair in pairs:
             confidence += 5
 
 
-if signal == "VENDER":
+    if signal == "VENDER":
 
-    if price < cloud_bottom:
+        if price < cloud_bottom:
 
-        confidence += 5
+            confidence += 5
 
-    if tenkan < kijun:
+        if tenkan < kijun:
 
-        confidence += 5
+            confidence += 5
 
     confidence = min(confidence, 95)
 
