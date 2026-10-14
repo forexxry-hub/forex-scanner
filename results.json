@@ -7,4 +7,16 @@
             "confidence": 75,
             "trend": "BAJISTA",
             "phase": "CORRECCION",
-            "bos": 
+            "bos": "False",
+            "choch": "False",
+            "liquidity": "False",
+            "fvg": "False",
+            "order_block": "False",
+            "price": 4183.5,
+            "entry": 4183.5,
+            "sl": 4306.31522,
+            "tp": 3937.86957,
+            "rr": 2.0
+        }
+    ]
+}

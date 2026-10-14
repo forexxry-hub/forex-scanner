@@ -151,12 +151,12 @@ if signal == "VENDER":
         "trend": trend,
         "phase": phase,
 
-        "bos": bos,
-        "choch": choch,
+        "bos": str(bos),
+        "choch": str(choch),
 
-        "liquidity": liquidity,
-        "fvg": fvg,
-        "order_block": order_block,
+        "liquidity": str(liquidity),
+        "fvg": str(fvg),
+        "order_block": str(order_block),
 
         "price": round(price, 5),
 
