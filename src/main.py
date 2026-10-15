@@ -87,19 +87,19 @@ for pair in pairs:
 
     if signal == "COMPRAR":
 
-        entry = price
+        entry = price - (atr * 0.5)
 
         sl = price - (atr * 1.5)
 
-        tp = price + (atr * 3)
+        tp = entry + ((entry - sl) * 2)
 
     elif signal == "VENDER":
 
-        entry = price
+        entry = price + (atr * 0.5)
 
         sl = price + (atr * 1.5)
 
-        tp = price - (atr * 3)
+        tp = entry - ((sl - entry) * 2)
 
     else:
 
