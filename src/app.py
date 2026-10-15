@@ -1,5 +1,6 @@
 import json
 import streamlit as st
+import subprocess
 
 st.set_page_config(
     page_title="Forex Scanner",
@@ -43,6 +44,16 @@ if not st.session_state.login:
 else:
 
     st.title("Forex Scanner")
+
+    if st.button("🔄 Actualizar análisis"):
+
+        subprocess.run(
+            ["python", "src/main.py"]
+        )
+
+        st.success(
+            "Análisis actualizado"
+        )
 
     with open("results.json", "r") as file:
         data = json.load(file)
