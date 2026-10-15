@@ -74,9 +74,9 @@ SEÑAL: {item['signal']}
 
 CONFIANZA: {item['confidence']}%
 
-PRECIO ACTUAL: {item['price']}
+PRECIO JSON: {item['price']}
 
-ENTRADA: {item['entry']}
+ENTRADA REAL JSON: {item['entry']}
 
 STOP LOSS: {item['sl']}
 
