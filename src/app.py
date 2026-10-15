@@ -1,5 +1,7 @@
 import json
+from datetime import datetime
 import streamlit as st
+from datetime import datetime
 import subprocess
 
 st.set_page_config(
@@ -44,6 +46,14 @@ if not st.session_state.login:
 else:
 
     st.title("Forex Scanner")
+    st.info(
+    "Última actualización: "
+    + datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+)
+    st.info(
+    f"Última actualización: "
+    f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
+)
 
     if st.button("🔄 Actualizar análisis"):
 
