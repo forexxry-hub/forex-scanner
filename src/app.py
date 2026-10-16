@@ -55,10 +55,15 @@ else:
 
         try:
 
-            subprocess.run(
+            resultado = subprocess.run(
                 ["python", "src/main.py"],
-                check=True
+                capture_output=True,
+                text=True
             )
+
+            st.code(resultado.stdout)
+
+            st.code(resultado.stderr)
 
             st.success(
                 "Mercado actualizado correctamente"
