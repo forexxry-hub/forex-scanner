@@ -51,36 +51,6 @@ else:
         f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
     )
 
-    if st.button("🔄 Actualizar mercado"):
-
-        try:
-
-            resultado = subprocess.run(
-                ["python", "src/main.py"],
-                capture_output=True,
-                text=True
-            )
-
-            st.code(resultado.stdout)
-
-            st.code(resultado.stderr)
-
-            st.success(
-                "Mercado actualizado correctamente"
-            )
-
-            st.rerun()
-
-        except Exception as e:
-
-            import traceback
-
-            st.error(str(e))
-
-            st.code(
-                traceback.format_exc()
-            )
-
     with open(
         "results.json",
         "r",
