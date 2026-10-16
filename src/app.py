@@ -68,8 +68,12 @@ else:
 
         except Exception as e:
 
-            st.error(
-                f"Error actualizando mercado: {e}"
+            import traceback
+
+            st.error(str(e))
+
+            st.code(
+                traceback.format_exc()
             )
 
     with open(
