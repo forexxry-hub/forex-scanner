@@ -1,5 +1,4 @@
 import json
-from datetime import datetime
 import streamlit as st
 from datetime import datetime
 import subprocess
@@ -46,26 +45,39 @@ if not st.session_state.login:
 else:
 
     st.title("Forex Scanner")
+
     st.info(
-    "Última actualización: "
-    + datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-)
-    st.info(
-    f"Última actualización: "
-    f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
-)
+        f"Última actualización: "
+        f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
+    )
 
-    if st.button("🔄 Actualizar análisis"):
+    if st.button("🔄 Actualizar mercado"):
 
-        subprocess.run(
-            ["python", "src/main.py"]
-        )
+        try:
 
-        st.success(
-            "Análisis actualizado"
-        )
+            subprocess.run(
+                ["python", "src/main.py"],
+                check=True
+            )
 
-    with open("results.json", "r") as file:
+            st.success(
+                "Mercado actualizado correctamente"
+            )
+
+            st.rerun()
+
+        except Exception as e:
+
+            st.error(
+                f"Error actualizando mercado: {e}"
+            )
+
+    with open(
+        "results.json",
+        "r",
+        encoding="utf-8"
+    ) as file:
+
         data = json.load(file)
 
     compras = data["compras"]
@@ -110,7 +122,7 @@ CONFIANZA: {item['confidence']}%
 
 PRECIO ACTUAL: {item['price']}
 
-ENTRADA: {item['entry']}
+PRECIO DE ENTRADA: {item['entry']}
 
 STOP LOSS: {item['sl']}
 

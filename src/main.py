@@ -68,7 +68,19 @@ for pair in pairs:
         choch
     )
 
-    price = float(data["Close"].iloc[-1])
+    try:
+
+        ticker = yf.Ticker(pair)
+
+        price = float(
+            ticker.fast_info["lastPrice"]
+        )
+
+    except:
+
+        price = float(
+            data["Close"].iloc[-1]
+        )
     
     tenkan = float(data["TENKAN"].iloc[-1])
 
