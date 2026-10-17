@@ -70,10 +70,15 @@ for pair in pairs:
 
     try:
 
-        ticker = yf.Ticker(pair)
+        intraday = yf.download(
+            pair,
+            period="1d",
+            interval="1m",
+            progress=False
+        )
 
         price = float(
-            ticker.fast_info["lastPrice"]
+            intraday["Close"].dropna().iloc[-1]
         )
 
     except:
