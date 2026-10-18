@@ -19,6 +19,7 @@ from liquidity_analysis import (
 
 from signal_generator import generate_signal
 from cot_analysis import get_cot_bias
+from macro_analysis import get_macro_risk
 
 
 print("ANALISIS FOREX")
@@ -70,6 +71,7 @@ for pair in pairs:
     )
 
     cot_bias = get_cot_bias(pair)
+    macro_risk = get_macro_risk(pair)
 
     try:
 
@@ -204,6 +206,10 @@ for pair in pairs:
 
         elif cot_bias == "ALCISTA":
             confidence -= 10
+    if macro_risk:
+
+        confidence -= 10
+
     confidence = min(confidence, 95)
 
     results.append({
