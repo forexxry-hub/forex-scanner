@@ -18,8 +18,8 @@ def detect_fvg(df):
 
 def detect_order_block(df):
 
-    recent_low = df["Low"].iloc[-20:-1].min()
+    recent_low = df["Low"].iloc[-10:-1].min()
 
-    current_low = df["Low"].iloc[-1]
+    current_close = df["Close"].iloc[-1]
 
-    return current_low <= recent_low
+    return current_close <= (recent_low * 1.003)
