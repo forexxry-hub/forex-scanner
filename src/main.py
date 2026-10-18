@@ -18,6 +18,7 @@ from liquidity_analysis import (
 )
 
 from signal_generator import generate_signal
+from cot_analysis import get_cot_bias
 
 
 print("ANALISIS FOREX")
@@ -68,6 +69,8 @@ for pair in pairs:
         choch
     )
 
+    cot_bias = get_cot_bias(pair)
+
     try:
 
         intraday = yf.download(
@@ -102,19 +105,47 @@ for pair in pairs:
 
     atr = float(data["ATR"].iloc[-1])
 
+    order_block_price = float(
+        data["Low"].iloc[-20:-1].min()
+    )
+
+    fvg_price = float(
+        data["High"].iloc[-3]
+    )
+
     if signal == "COMPRAR":
 
-        entry = price - (atr * 0.5)
+        if order_block:
 
-        sl = price - (atr * 1.5)
+            entry = order_block_price
+
+        elif fvg:
+
+            entry = fvg_price
+
+        else:
+
+            entry = price - (atr * 0.5)
+
+        sl = entry - (atr * 1.5)
 
         tp = entry + ((entry - sl) * 2)
 
     elif signal == "VENDER":
 
-        entry = price + (atr * 0.5)
+        if order_block:
 
-        sl = price + (atr * 1.5)
+            entry = order_block_price
+
+        elif fvg:
+
+            entry = fvg_price
+
+        else:
+
+            entry = price + (atr * 0.5)
+
+        sl = entry + (atr * 1.5)
 
         tp = entry - ((sl - entry) * 2)
 
@@ -158,12 +189,28 @@ for pair in pairs:
 
             confidence += 5
 
+    if signal == "COMPRAR":
+
+        if cot_bias == "ALCISTA":
+            confidence += 10
+
+        elif cot_bias == "BAJISTA":
+            confidence -= 10
+
+    elif signal == "VENDER":
+
+        if cot_bias == "BAJISTA":
+            confidence += 10
+
+        elif cot_bias == "ALCISTA":
+            confidence -= 10
     confidence = min(confidence, 95)
 
     results.append({
         "pair": pair,
         "signal": signal,
         "confidence": confidence,
+        "cot_bias": cot_bias,
 
         "trend": trend,
         "phase": phase,
