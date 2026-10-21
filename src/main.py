@@ -319,3 +319,5 @@ with open("results.json", "w") as file:
         file,
         indent=4
     )
+
+print("RESULTS.JSON CREADO")
